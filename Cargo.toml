@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 sysinfo = "0.29.0"
+
+[dependencies.clap]
+version = "4.2.7"
+features = ["derive"]
