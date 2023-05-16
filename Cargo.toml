@@ -2,6 +2,10 @@
 name = "petri"
 version = "0.1.0"
 edition = "2021"
+readme = "README.md"
+homepage = "https://github.com/ynuwenhof/petri"
+repository = "https://github.com/ynuwenhof/petri"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 sysinfo = "0.29.0"
