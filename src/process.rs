@@ -1,4 +1,4 @@
-use sysinfo::Pid;
+use sysinfo::{Pid, ProcessExt};
 
 pub struct Process<'a> {
     process: &'a sysinfo::Process,
@@ -11,5 +11,9 @@ impl<'a> Process<'a> {
             process,
             children: None,
         }
+    }
+
+    pub fn parent(&self) -> Option<Pid> {
+        self.process.parent()
     }
 }
