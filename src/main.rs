@@ -1,3 +1,10 @@
+use clap::Parser;
+#[derive(Parser)]
+struct Cli {
+    #[arg(short, long)]
+    sort: bool,
+}
+
 fn main() {
-    println!("Hello, world!");
+    let cli = Cli::parse();
 }
