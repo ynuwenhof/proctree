@@ -2,6 +2,7 @@
 name = "petri"
 version = "0.1.0"
 edition = "2021"
+description = "Show running processes in a tree structure"
 readme = "README.md"
 homepage = "https://github.com/ynuwenhof/petri"
 repository = "https://github.com/ynuwenhof/petri"
