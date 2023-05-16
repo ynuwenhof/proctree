@@ -9,7 +9,7 @@ use sysinfo::{Pid, ProcessExt, System, SystemExt};
 
 #[derive(Parser)]
 struct Cli {
-    #[arg(short, long)]
+    #[arg(short, long, default_value_t = true)]
     sort: bool,
 }
 
