@@ -49,8 +49,8 @@ fn main() {
         root.sort_unstable();
     }
 
-    let len = root.len() - 1;
     let mut buf = String::new();
+    let len = root.len().saturating_sub(1);
 
     for (i, pid) in root.iter().enumerate() {
         let process = &processes[pid];
@@ -71,7 +71,7 @@ fn print_process(
     buf.push_str("  ");
 
     if let Some(children) = &process.children {
-        let len = children.len() - 1;
+        let len = children.len().saturating_sub(1);
         for (i, pid) in children.iter().enumerate() {
             let child = &processes[pid];
             print_process(processes, child, buf, i == len)
