@@ -9,8 +9,8 @@ use sysinfo::{Pid, ProcessExt, System, SystemExt};
 
 #[derive(Parser)]
 struct Cli {
-    #[arg(short, long, default_value_t = true)]
-    sort: bool,
+    #[arg(short, long)]
+    unsorted : bool,
 }
 
 fn main() {
@@ -45,7 +45,7 @@ fn main() {
         }
     });
 
-    if cli.sort {
+    if !cli.unsorted {
         root.sort_unstable();
     }
 
