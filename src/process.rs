@@ -13,6 +13,14 @@ impl<'a> Process<'a> {
         }
     }
 
+    pub fn name(&self) -> &str {
+        self.process.name()
+    }
+
+    pub fn pid(&self) -> Pid {
+        self.process.pid()
+    }
+
     pub fn parent(&self) -> Option<Pid> {
         self.process.parent()
     }

@@ -48,4 +48,35 @@ fn main() {
     if cli.sort {
         root.sort_unstable();
     }
+
+    let len = root.len() - 1;
+    let mut buf = String::new();
+
+    for (i, pid) in root.iter().enumerate() {
+        let process = &processes[pid];
+        print_process(&processes, process, &mut buf, i == len);
+    }
+}
+
+fn print_process(
+    processes: &HashMap<&Pid, Process>,
+    process: &Process,
+    buf: &mut String,
+    last: bool,
+) {
+    let (symbol, branch) = if last { (' ', '└') } else { ('|', '├') };
+    println!("{buf}{branch}──{} {}", process.pid(), process.name());
+
+    buf.push(symbol);
+    buf.push_str("  ");
+
+    if let Some(children) = &process.children {
+        let len = children.len() - 1;
+        for (i, pid) in children.iter().enumerate() {
+            let child = &processes[pid];
+            print_process(processes, child, buf, i == len)
+        }
+    }
+
+    buf.truncate(buf.len() - 3);
 }
