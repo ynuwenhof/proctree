@@ -22,6 +22,14 @@ cd proctree
 cargo install --path .
 ```
 
+After installing, you can run the application with:
+
+```bash
+proctree --unsorted
+```
+
+this will print the process tree into the terminal.
+
 ## License
 
 This project is licensed under either of the following licenses, at your option:
