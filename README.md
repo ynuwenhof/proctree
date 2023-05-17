@@ -30,6 +30,16 @@ proctree --unsorted
 
 this will print the process tree into the terminal.
 
+## Configuration
+
+Proctree can be configured via environment variables or command line arguments.
+
+Missing keys will fallback to their default value.
+
+| Key                   | Description                                   | Default |
+|-----------------------|-----------------------------------------------|---------|
+| `PROCTREE_UNSORTED`   | Print the process tree without sorting by pid | `false` |
+
 ## License
 
 This project is licensed under either of the following licenses, at your option:
