@@ -9,7 +9,7 @@ use sysinfo::{Pid, ProcessExt, System, SystemExt};
 
 #[derive(Parser)]
 struct Cli {
-    #[arg(short, long)]
+    #[arg(short, long, env = "PROCTREE_UNSORTED")]
     unsorted : bool,
 }
 
