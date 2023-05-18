@@ -64,7 +64,7 @@ fn print_process(
     buf: &mut String,
     last: bool,
 ) {
-    let (symbol, branch) = if last { (' ', '└') } else { ('|', '├') };
+    let (symbol, branch) = if last { (' ', '└') } else { ('│', '├') };
     println!("{buf}{branch}──{} {}", process.pid(), process.name());
 
     buf.push(symbol);
@@ -78,5 +78,5 @@ fn print_process(
         }
     }
 
-    buf.truncate(buf.len() - 3);
+    buf.truncate(buf.len() - 2 - symbol.len_utf8());
 }

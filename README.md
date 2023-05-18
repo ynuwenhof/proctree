@@ -5,16 +5,16 @@ Show running processes in a tree structure.
 ```
 > proctree
 ├──1 systemd
-|  ├──1028 upowerd
-|  ├──1040 rtkit-daemon
-|  ├──1095 ModemManagere
-|  ├──840 NetworkManager
-|  ├──527 systemd-oomd
-|  ├──885 cupsd
-|  └──876 gdm
-|     └──1275 gdm-session-wor
-|        └──1312 gdm-wayland-ses
-|           └──1315 .gnome-session-
+│  ├──1028 upowerd
+│  ├──1040 rtkit-daemon
+│  ├──1095 ModemManagere
+│  ├──840 NetworkManager
+│  ├──527 systemd-oomd
+│  ├──885 cupsd
+│  └──876 gdm
+│     └──1275 gdm-session-wor
+│        └──1312 gdm-wayland-ses
+│           └──1315 .gnome-session-
 └──2 kthreadd
    ├──2982 kworker/3:3-events
    ├──27 kworker/2:0H-events_highpri
