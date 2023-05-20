@@ -1,5 +1,3 @@
-#![feature(drain_filter)]
-
 mod process;
 
 use crate::process::Process;
@@ -10,7 +8,7 @@ use sysinfo::{Pid, ProcessExt, System, SystemExt};
 #[derive(Parser)]
 struct Cli {
     #[arg(short, long, env = "PROCTREE_UNSORTED")]
-    unsorted : bool,
+    unsorted: bool,
 }
 
 fn main() {
@@ -32,18 +30,22 @@ fn main() {
         processes.insert(pid, Process::new(process));
     }
 
-    root.drain_filter(|pid| {
+    // TODO: https://github.com/rust-lang/rust/issues/43244
+    // TODO: Replace this implementation once the `drain_filter` feature has been stabilized
+    let mut i = 0;
+    while i < root.len() {
+        let pid = root[i];
         match processes[pid]
             .parent()
             .and_then(|parent| processes.get_mut(&parent))
         {
-            None => false,
+            None => i += 1,
             Some(parent) => {
                 parent.children.get_or_insert_with(Vec::new).push(pid);
-                true
+                root.swap_remove(i);
             }
         }
-    });
+    }
 
     if !cli.unsorted {
         root.sort_unstable();
